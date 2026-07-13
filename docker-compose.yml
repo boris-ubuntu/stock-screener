@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  # Наше приложение (БД — локальный PostgreSQL)
+  app:
+    build: .
+    container_name: screener_app
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql://boris@localhost:5432/screener_db
+    restart: unless-stopped
+    volumes:
+      - ./app:/app/app
+    network_mode: host  # используем host-сеть для доступа к локальной БД

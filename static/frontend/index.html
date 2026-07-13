@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <title>📊 Stock Screener</title>
+    <link rel="stylesheet" href="/static/frontend/style.css" />
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>📊 Stock Screener</h1>
+            <p class="subtitle">Анализ акций и мультипликаторов</p>
+            <div id="currency-container">
+                <span id="usd-rate">💵 USD: загрузка...</span>
+                <span id="cny-rate">💴 CNY: загрузка...</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <div class="main-grid">
+
+            <section id="companies-section">
+                <h2>📋 Компании</h2>
+                <div id="companies-container">
+                    <div class="loading">⏳ Загрузка компаний...</div>
+                </div>
+            </section>
+
+            <section id="chart-section">
+                <h2>📈 График и метрики</h2>
+                <div id="chart-container">
+                    <p class="hint">👆 Выберите компанию из списка</p>
+                    <div id="chart-wrapper" style="display:none;">
+                        <img id="chart-image" src="" alt="График" />
+                        <div id="chart-info"></div>
+                    </div>
+                </div>
+                <div id="metrics-container" style="display:none; margin-top: 20px;">
+                    <h3>📊 Мультипликаторы</h3>
+                    <table id="metrics-detail-table">
+                        <thead>
+                            <tr>
+                                <th>Показатель</th>
+                                <th>Значение</th>
+                            </tr>
+                        </thead>
+                        <tbody id="metrics-body">
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </div>
+
+        <section id="table-section">
+            <h2>📊 Сравнительная таблица мультипликаторов</h2>
+            <div id="table-container">
+                <table id="metrics-table">
+                    <thead>
+                        <tr>
+                            <th>Тикер</th>
+                            <th>P/E</th>
+                            <th>P/B</th>
+                            <th>ROE, %</th>
+                            <th>EPS, ₽</th>
+                            <th>Див. доходность, %</th>
+                        </tr>
+                    </thead>
+                    <tbody id="metrics-table-body">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>📊 Stock Screener &bull; Данные с MOEX и Smart-Lab</p>
+        </div>
+    </footer>
+
+    <script src="/static/frontend/script.js"></script>
+</body>
+</html>

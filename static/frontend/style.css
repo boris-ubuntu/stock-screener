@@ -1,0 +1,383 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #f0f4f8;
+    color: #1a202c;
+    padding: 16px;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* ─── Шапка ─── */
+header {
+    background: linear-gradient(135deg, #1a365d, #2b6cb0);
+    color: white;
+    padding: 24px 16px;
+    border-radius: 16px;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2rem;
+}
+
+header .subtitle {
+    opacity: 0.85;
+}
+
+/* ─── Курсы валют ─── */
+#currency-container {
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    font-size: 1rem;
+    font-weight: 500;
+    flex-wrap: wrap;
+}
+
+#currency-container span {
+    background: rgba(255,255,255,0.15);
+    padding: 4px 16px;
+    border-radius: 20px;
+    backdrop-filter: blur(4px);
+}
+
+@media (max-width: 600px) {
+    #currency-container {
+        font-size: 0.85rem;
+        gap: 12px;
+    }
+    #currency-container span {
+        padding: 2px 12px;
+    }
+}
+
+/* ─── Сетка ─── */
+.main-grid {
+    display: grid;
+    grid-template-columns: 1fr 2.5fr;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+@media (max-width: 900px) {
+    .main-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ─── Карточки секций ─── */
+section {
+    background: white;
+    border-radius: 16px;
+    padding: 20px 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+section h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 3px solid #2b6cb0;
+    color: #1a365d;
+}
+
+/* ─── Компании ─── */
+#companies-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.company-card {
+    background: #f7fafc;
+    border-left: 4px solid #2b6cb0;
+    border-radius: 10px;
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.1s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.company-card:hover {
+    background: #edf2f7;
+    transform: translateX(4px);
+}
+
+.company-card:active {
+    transform: scale(0.98);
+}
+
+.company-card .ticker {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #1a365d;
+}
+
+.company-card .name {
+    color: #4a5568;
+    font-size: 0.9rem;
+    margin-left: 8px;
+}
+
+.company-card .badge {
+    background: #2b6cb0;
+    color: white;
+    padding: 2px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.loading {
+    color: #4a5568;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* ─── График ─── */
+#chart-container {
+    min-height: 200px;
+}
+
+.hint {
+    color: #718096;
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.95rem;
+}
+
+#chart-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#chart-image {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    background: white;
+}
+
+#chart-info {
+    margin-top: 12px;
+    font-size: 0.9rem;
+    color: #4a5568;
+    text-align: center;
+}
+
+/* ─── Детальная таблица метрик ─── */
+#metrics-container {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 16px;
+    border: 1px solid #e2e8f0;
+    margin-top: 16px;
+}
+
+#metrics-container h3 {
+    font-size: 1.1rem;
+    color: #1a365d;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+#metrics-detail-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+#metrics-detail-table thead th {
+    background: #2b6cb0;
+    color: white;
+    padding: 10px 16px;
+    text-align: left;
+    font-weight: 600;
+}
+
+#metrics-detail-table tbody td {
+    padding: 10px 16px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+#metrics-detail-table tbody tr:nth-child(even) {
+    background: #f1f5f9;
+}
+
+#metrics-detail-table tbody tr:hover {
+    background: #e2e8f0;
+}
+
+#metrics-detail-table .metric-name {
+    font-weight: 500;
+    color: #1a365d;
+}
+
+#metrics-detail-table .metric-value {
+    font-weight: 600;
+    color: #2d3748;
+    text-align: right;
+}
+
+#metrics-detail-table .metric-value.good {
+    color: #38a169;
+}
+
+#metrics-detail-table .metric-value.bad {
+    color: #e53e3e;
+}
+
+@media (max-width: 600px) {
+    #metrics-detail-table {
+        font-size: 0.8rem;
+    }
+    #metrics-detail-table thead th,
+    #metrics-detail-table tbody td {
+        padding: 6px 10px;
+    }
+}
+
+/* ─── Сравнительная таблица (основная) ─── */
+#table-section {
+    margin-top: 30px;
+}
+
+#metrics-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+#metrics-table thead {
+    background: #1a365d;
+    color: white;
+}
+
+#metrics-table thead th {
+    padding: 14px 16px;
+    text-align: left;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s;
+    white-space: nowrap;
+}
+
+#metrics-table thead th:hover {
+    background: #2b6cb0;
+}
+
+#metrics-table thead th .sort-arrow {
+    display: inline-block;
+    margin-left: 6px;
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
+
+#metrics-table thead th.active .sort-arrow {
+    opacity: 1;
+}
+
+#metrics-table thead th.asc .sort-arrow {
+    transform: rotate(0deg);
+}
+
+#metrics-table thead th.desc .sort-arrow {
+    transform: rotate(180deg);
+}
+
+#metrics-table tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #e2e8f0;
+    color: #2d3748;
+}
+
+#metrics-table tbody tr:hover {
+    background: #f7fafc;
+}
+
+#metrics-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+#metrics-table .value-good {
+    color: #38a169;
+    font-weight: 600;
+}
+
+#metrics-table .value-bad {
+    color: #e53e3e;
+    font-weight: 600;
+}
+
+#metrics-table .value-neutral {
+    color: #d69e2e;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    #metrics-table {
+        font-size: 0.75rem;
+    }
+    #metrics-table thead th,
+    #metrics-table tbody td {
+        padding: 8px 10px;
+    }
+}
+
+/* ─── Подвал ─── */
+footer {
+    margin-top: 24px;
+    text-align: center;
+    color: #718096;
+    font-size: 0.85rem;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 16px;
+}
+
+/* ─── Адаптивность ─── */
+@media (max-width: 600px) {
+    body {
+        padding: 8px;
+    }
+    header {
+        padding: 16px;
+    }
+    header h1 {
+        font-size: 1.5rem;
+    }
+    section {
+        padding: 14px 12px;
+    }
+    .company-card {
+        padding: 10px 12px;
+    }
+    .company-card .name {
+        font-size: 0.8rem;
+    }
+}
